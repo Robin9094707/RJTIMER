@@ -1,4 +1,5 @@
 import AlarmKit
+import ActivityKit
 import AppIntents
 import Foundation
 import SwiftUI
