@@ -1,0 +1,4 @@
+.tools/
+.rj-derived-data/
+*.xcodeproj/xcuserdata/
+.DS_Store
