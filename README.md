@@ -37,3 +37,11 @@ Siehe `GITHUB-QUICKSTART.md`.
   `AlarmPresentation.Alert`-API ab iOS 26.1 verfügbar ist.
 - `ActivityKit` in `RJTimerAlarm.swift` importiert, damit
   `AlertConfiguration.AlertSound` korrekt aufgelöst wird.
+
+
+## v1.0.2 Swift-6 Build-Fix
+
+- `TimerCardView.stateBadge` aus dem `@ViewBuilder` herausgenommen.
+  Normale Variablenzuweisungen wurden dort von SwiftUI als View-Ausdrücke interpretiert.
+- Actor-Isolation-Fehler im `TimerStore.deinit` entfernt.
+- Kleine Compiler-Warnung im Timer-Startcode bereinigt.

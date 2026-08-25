@@ -25,10 +25,6 @@ final class TimerStore {
         }
     }
 
-    deinit {
-        alarmObservationTask?.cancel()
-    }
-
     var activeTimers: [TimerRecord] {
         timers
             .filter(\.isActive)
@@ -63,7 +59,7 @@ final class TimerStore {
             return
         }
 
-        var record = TimerRecord(
+        let record = TimerRecord(
             title: title.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ? "Timer" : title,
             symbol: symbol,
             accent: accent,

@@ -87,30 +87,21 @@ struct TimerCardView: View {
         .accessibilityValue("\(Int((1 - progress) * 100)) Prozent verbleibend")
     }
 
-    @ViewBuilder
     private func stateBadge(_ timer: TimerRecord) -> some View {
-        let text: String
-        let symbol: String
-
-        switch timer.state {
+        let descriptor: (text: String, symbol: String) = switch timer.state {
         case .running:
-            text = "Läuft"
-            symbol = "play.fill"
+            ("Läuft", "play.fill")
         case .paused:
-            text = "Pause"
-            symbol = "pause.fill"
+            ("Pause", "pause.fill")
         case .alerting:
-            text = "Fertig"
-            symbol = "bell.fill"
+            ("Fertig", "bell.fill")
         case .completed:
-            text = "Beendet"
-            symbol = "checkmark"
+            ("Beendet", "checkmark")
         case .stopped:
-            text = "Gestoppt"
-            symbol = "stop.fill"
+            ("Gestoppt", "stop.fill")
         }
 
-        Label(text, systemImage: symbol)
+        return Label(descriptor.text, systemImage: descriptor.symbol)
             .font(.caption.bold())
             .padding(.horizontal, 10)
             .padding(.vertical, 6)
